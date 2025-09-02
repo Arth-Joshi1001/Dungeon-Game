@@ -139,7 +139,7 @@ tc = 0
 
 while True:
     
-    print("\033[H\033[J", end="")
+    print("\033c", end="")
     current_map = "\nDungeon Map:\n\n"
     for row in dungeon_map:
         colored_row = ""
@@ -255,3 +255,4 @@ while True:
 
     else:
         print(" Invalid move!")
+
