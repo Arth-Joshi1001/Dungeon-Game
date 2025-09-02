@@ -135,10 +135,11 @@ ps = 0
 tt = sum(row.count("T") for row in dungeon_map)
 tc = 0
 
-h = []  
+
 
 while True:
     
+    print("\033[H\033[J", end="")
     current_map = "\nDungeon Map:\n\n"
     for row in dungeon_map:
         colored_row = ""
@@ -157,14 +158,8 @@ while True:
                 colored_row += ch
         current_map += colored_row + "\n"
     current_map += f"\n{green}Score:{reset} {ps} | {gold}Treasures:{reset} {tc}/{tt}\n"
-
-    h.append(current_map)
-    if len(h) > 3:
-        h.pop(0)
         
-    print("\033[26K")
-    for m in h:
-        print( m)
+    print(current_map)
     
     direction = input("Move (W/A/S/D): ").lower()
     if direction in ["w", "a", "s", "d"]:
